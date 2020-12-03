@@ -6,18 +6,24 @@ def map_traverse_trees():
         
         num_cols = len(tree_map[0])
         num_rows = len(tree_map)
-git init
 
-        trees = 0
-        pos = [0,0]
+        trees_arr = [0] * 5
+        slopes = [(1,1),(1,3),(1,5),(1,7),(2,1)]
 
-        for i in range(num_rows-1):
-            pos[0] += 1
-            pos[1] = (pos[1] + 3)% num_cols
-            if tree_map[pos[0]][pos[1]] == "#":
-                trees += 1
+        for j in range(len(slopes)):
+            pos = [0,0]
+            for i in range(num_rows-1):
+                pos[0] += slopes[j][0]
+                pos[1] = (pos[1] + slopes[j][1])% num_cols
+                if pos[0] < num_rows and tree_map[pos[0]][pos[1]] == "#":
+                    trees_arr[j] += 1
         
-        return trees
+        return trees_arr
             
-trees = map_traverse_trees()
-print(trees)
+trees_array = map_traverse_trees()
+
+product = 1
+for i in trees_array:
+    product *= i
+
+print(product)
