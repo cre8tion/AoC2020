@@ -26,6 +26,5 @@ def get_final_acc_from_instructions():
 
         return current_acc
 
-
 final_acc = get_final_acc_from_instructions()
 print(final_acc)

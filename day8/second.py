@@ -9,7 +9,6 @@ def get_final_acc_from_instructions():
         current_acc = try_prevent_termination(text_lst)
         return current_acc
 
-
 def try_prevent_termination(lst, ):
     for i in range(len(lst)-1, -1 , -1):
         if lst[i][0] == "jmp" or lst[i][0] == "nop":
@@ -46,7 +45,6 @@ def try_prevent_termination(lst, ):
                 # Return current accumulator when a change in instruction results in successful termination
                 if current_instr == len(lst) - 1:
                     return current_acc
-    
 
 final_acc = get_final_acc_from_instructions()
 print(final_acc)
